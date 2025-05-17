@@ -12,13 +12,16 @@
     }
   ],
   "routes": [
-    // 1) Wszystko co trafia na /api/* idzie do naszych funkcji
-    { "src": "/api/(.*)",     "dest": "backend/$1.py" },
-
-    // 2) Pozwól Vercel obsłużyć pliki ze statycznego build/
-    { "handle": "filesystem" },
-
-    // 3) Dla pozostałych ścieżek (SPA routing) serwuj index.html
-    { "src": "/(.*)",         "dest": "/index.html" }
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/$1.py"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
